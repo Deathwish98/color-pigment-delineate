@@ -1,0 +1,31 @@
+<mat-toolbar color="primary">
+  <span class="header-font">
+    <a href="#">Color Pigment Delineate</a>
+  </span>
+
+  <span>
+    <input type="text" name="search" placeholder="Search..">
+  </span>
+
+
+
+  <!-- This fills the remaining space of the current row -->
+  <span class="example-fill-remaining-space"></span>
+
+  <span class="navbar-right-item dropdown-menu-item" [matMenuTriggerFor]="watch">Watch<mat-icon>keyboard_arrow_down</mat-icon></span>
+  <span class="navbar-right-item dropdown-menu-item" [matMenuTriggerFor]="manage_vid">Manage Videos<mat-icon>keyboard_arrow_down</mat-icon></span>
+  <mat-menu #watch="matMenu">
+    <button mat-menu-item>Top Rated</button>
+    <button mat-menu-item>Community</button>
+  </mat-menu>
+  <mat-menu #manage_vid="matMenu">
+    <button mat-menu-item>My Videos</button>
+    <button mat-menu-item>Analytics</button>
+  </mat-menu>
+  <button class="notif-btn" mat-icon-button aria-label="Notifications">
+    <mat-icon>notifications</mat-icon>
+  </button>
+  <button class="logout-btn" mat-button aria-label="Logout">
+    Logout
+  </button>
+</mat-toolbar>

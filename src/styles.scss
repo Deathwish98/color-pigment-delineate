@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+@import '../node_modules/@angular/material/prebuilt-themes/indigo-pink.css';
+
+@font-face {
+  font-family: 'colorbars';
+  src: url('./assets/fonts/colourbars.ttf');
+  font-weight: 600;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+}
+
+

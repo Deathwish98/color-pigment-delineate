@@ -1,0 +1,25 @@
+<app-header></app-header>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav mode="side" opened>
+    <mat-list>
+      <mat-list-item *ngFor="let item of sideNavItems">
+<!---->
+        <mat-icon matListIcon>{{item.icon}}</mat-icon>
+        <a matLine href="#"><h3 matLine> {{item.label}} </h3></a>
+        <button mat-icon-button mat-button *ngIf="item && item.additional_icon" >
+          <mat-icon matListIcon class="additonal_sidenav_list_icon">{{item.additional_icon}}</mat-icon>
+        </button>
+
+        <mat-divider></mat-divider>
+      </mat-list-item>
+    </mat-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <!--<video width="400" controls>-->
+      <!--<source src="https://www.youtube.com/watch?v=OqL9a2hPT0k" type="video/mp4">-->
+      <!--<source src="https://www.youtube.com/watch?v=OqL9a2hPT0k" type="video/ogg">-->
+    <!--</video>-->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<app-footer></app-footer>
