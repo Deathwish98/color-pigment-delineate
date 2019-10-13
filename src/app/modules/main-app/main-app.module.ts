@@ -3,7 +3,7 @@ import {MainAppRoutingModule} from './main-app-routing.module';
 import {MainAppComponent} from './main-app.component';
 import {DashboardComponent} from './components/dashboard/dashboard.component';
 import {
-  MatButtonModule, MatDividerModule,
+  MatButtonModule, MatDividerModule, MatGridListModule,
   MatIconModule,
   MatInputModule,
   MatListModule,
@@ -14,13 +14,15 @@ import {
 import {CommonModule} from '@angular/common';
 import {HeaderComponent} from './components/header/header.component';
 import {FooterComponent} from './components/footer/footer.component';
+import { VideosComponent } from './components/videos/videos.component';
 
 @NgModule({
   declarations: [
     MainAppComponent,
     DashboardComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    VideosComponent
   ],
   imports: [
     MainAppRoutingModule,
@@ -32,7 +34,8 @@ import {FooterComponent} from './components/footer/footer.component';
     MatSidenavModule,
     MatListModule,
     MatDividerModule,
-    CommonModule
+    CommonModule,
+    MatGridListModule
   ]
 })
 export class MainAppModule { }

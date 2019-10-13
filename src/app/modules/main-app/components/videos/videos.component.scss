@@ -1,0 +1,40 @@
+mat-grid-tile {
+  .title {
+    margin-right: auto;
+    margin-left: 64px;
+    font-size: 32px;
+    font-family: cursive;
+    color: #2b2b2b;
+  }
+
+  .description-text {
+    font-size: 26px;
+    font-family: sans-serif;
+    max-width: 30rem;
+    line-height: 2;
+    margin-left: 64px;
+    margin-bottom: auto;
+    margin-top: 48px;
+    color: rgb(26, 46, 59);
+    display: block;
+  }
+}
+
+.btn-row {
+  margin-bottom: auto;
+  margin-top: 0px;
+  button {
+    width: 13rem;
+    height: 3rem;
+    margin: auto 8px;
+  }
+  .play-btn {
+    background-color: gray;
+    color: white;
+  }
+}
+
+.video-player {
+  margin-top: 5rem !important;
+
+}

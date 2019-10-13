@@ -1,0 +1,30 @@
+<mat-grid-list cols="4" rowHeight="2:1">
+  <mat-grid-tile [colspan]="2" [rowspan]="1">
+    <h3 class="title"> Videos </h3>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="2" [rowspan]="3" class="video-player">
+    <div class="container">
+      <video id='plyrID' controls crossorigin playsinline poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg">
+        <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" type="video/mp4" size="576">
+        <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-720p.mp4" type="video/mp4" size="720">
+        <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1080p.mp4" type="video/mp4" size="1080">
+
+        <!-- Caption files -->
+        <track kind="captions" label="English" srclang="en" src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.en.vtt"
+               default>
+        <track kind="captions" label="Français" srclang="fr" src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.fr.vtt">
+        <!-- Fallback for browsers that don't support the <video> element -->
+        <a href="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" download>Download</a>
+      </video>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="2" [rowspan]="2">
+    <p class="description-text">This is where your videos and their respective settings are stored. You can choose a video from list of your videos.</p>
+  </mat-grid-tile>
+
+  <mat-grid-tile [colspan]="2" [rowspan]="1" class="btn-row">
+    <button mat-raised-button color="primary">Play</button>
+    <button mat-raised-button class="play-btn">Upload</button>
+  </mat-grid-tile>
+
+</mat-grid-list>

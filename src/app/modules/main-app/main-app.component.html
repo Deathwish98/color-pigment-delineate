@@ -2,10 +2,10 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav mode="side" opened>
     <mat-list>
-      <mat-list-item *ngFor="let item of sideNavItems">
+      <mat-list-item *ngFor="let item of sideNavItems" [routerLink]="item.link">
 <!---->
         <mat-icon matListIcon>{{item.icon}}</mat-icon>
-        <a matLine href="#"><h3 matLine> {{item.label}} </h3></a>
+        <a matLine><h3 matLine> {{item.label}} </h3></a>
         <button mat-icon-button mat-button *ngIf="item && item.additional_icon" >
           <mat-icon matListIcon class="additonal_sidenav_list_icon">{{item.additional_icon}}</mat-icon>
         </button>

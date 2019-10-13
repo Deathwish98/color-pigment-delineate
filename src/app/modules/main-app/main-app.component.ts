@@ -12,11 +12,13 @@ export class MainAppComponent {
   sideNavItems = [
     {
       label: 'Home',
-      icon: 'home'
+      icon: 'home',
+      link: ''
     },
     {
       label: 'Videos',
       icon: 'videocam',
+      link: '/videos',
       additional_icon: 'add_circle'
     }
   ];

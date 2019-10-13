@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {MainAppComponent} from './main-app.component';
 import {DashboardComponent} from './components/dashboard/dashboard.component';
+import {VideosComponent} from './components/videos/videos.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,9 @@ const routes: Routes = [
       {
         path: 'dashboard', component: DashboardComponent
       },
+      {
+        path: 'videos', component: VideosComponent
+      }
       // {
       //   path: 'balance', loadChildren: './balance/balance.module#BalanceModule'
       // },
