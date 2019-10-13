@@ -4,12 +4,12 @@
     <form [formGroup]="RegisterForm" (ngSubmit)="Register()">
       <mat-form-field appearance="outline">
         <mat-label>First Name</mat-label>
-        <input matInput formControlName="first">
-        <mat-error *ngIf="email.invalid">{{getErrorMessage('first')}}</mat-error>
+        <input matInput formControlName="firstName">
+        <mat-error *ngIf="firstName.invalid">{{getErrorMessage('first')}}</mat-error>
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Last Name</mat-label>
-        <input matInput formControlName="last">
+        <input matInput formControlName="lastName">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>E-mail</mat-label>
@@ -22,7 +22,7 @@
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
-        <mat-error *ngIf="email.invalid">{{getErrorMessage('first')}}</mat-error>
+        <mat-error *ngIf="password.invalid">{{getErrorMessage('first')}}</mat-error>
       </mat-form-field>
       <div class="button">
         <button type="submit" mat-button>Register</button>
