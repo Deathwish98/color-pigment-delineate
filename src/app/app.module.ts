@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AppRoutingModule} from './app-routing.module';
 import {AuthGuard} from './services/auth-guard.service';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import {AuthGuard} from './services/auth-guard.service';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
 
     AppRoutingModule
   ],

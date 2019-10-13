@@ -1,5 +1,7 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {RegistrationService} from '../../../../services/registration.service';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -7,25 +9,34 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./register.component.scss'],
   // encapsulation: ViewEncapsulation.None
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent implements OnInit, OnDestroy {
 
   hide = true;
+  registrationSubscription: Subscription;
 
-  RegisterForm: FormGroup = new FormGroup({
+  registerForm: FormGroup = new FormGroup({
     email: new FormControl(null, [Validators.required, Validators.email]),
     password: new FormControl(null, [Validators.required]),
     firstName: new FormControl(null, [Validators.required, Validators.pattern('[a-zA-Z]*')]),
     lastName: new FormControl(null)
   });
 
-  constructor() { }
+  constructor(private registrationService: RegistrationService) { }
 
   ngOnInit() {
   }
 
+  ngOnDestroy(): void {
+    this.registrationSubscription.unsubscribe();
+  }
+
   Register() {
-    if (this.RegisterForm.valid) {
-      return;
+    if (this.registerForm.valid) {
+      this.registrationSubscription = this.registrationService.register(this.registerForm.value).subscribe((response) => {
+        console.log(response);
+      }, (err) => {
+        console.log(err);
+      });
     } else {
       console.log('shit happens');
     }
@@ -43,19 +54,19 @@ export class RegisterComponent implements OnInit {
   }
 
   get firstName() {
-    return this.RegisterForm.get('firstName');
+    return this.registerForm.get('firstName');
   }
 
   get lastName() {
-    return this.RegisterForm.get('lastName');
+    return this.registerForm.get('lastName');
   }
 
   get email() {
-    return this.RegisterForm.get('email');
+    return this.registerForm.get('email');
   }
 
   get password() {
-    return this.RegisterForm.get('password');
+    return this.registerForm.get('password');
   }
 
 }

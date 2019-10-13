@@ -21,9 +21,13 @@
         </mat-checkbox>
         <a routerLink="/forgot-password">Forgot Password ?</a>
       </div>
-      <div class="button">
+      <div class="button" *ngIf="!showloginSpinner else progressBar">
         <button type="submit" mat-button>Login</button>
       </div>
+      <ng-template #progressBar>
+        <mat-progress-bar mode="query"></mat-progress-bar>
+      </ng-template>
     </form>
+
   </mat-card-content>
 </mat-card>

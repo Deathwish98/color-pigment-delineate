@@ -1,5 +1,7 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {LoginService} from '../../../../services/login.service';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -7,23 +9,38 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./login.component.scss'],
   // encapsulation: ViewEncapsulation.None
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
 
   hide = true;
+  showloginSpinner = false;
+  loginSubscription: Subscription;
+
 
   loginForm: FormGroup = new FormGroup({
     email: new FormControl(null, [Validators.required, Validators.email]),
     password: new FormControl(null, [Validators.required])
   });
 
-  constructor() { }
+  constructor(private loginService: LoginService) { }
 
   ngOnInit() {
   }
 
+  ngOnDestroy(): void {
+    this.loginSubscription.unsubscribe();
+  }
+
   login() {
     if (this.loginForm.valid) {
-      return;
+      this.showloginSpinner = true;
+
+      this.loginSubscription = this.loginService.login(this.loginForm.value).subscribe((response) => {
+        this.showloginSpinner = false;
+        console.log(response);
+      }, (err) => {
+        this.showloginSpinner = false;
+        console.log(err);
+      });
     } else {
       console.log('shit happens');
     }
