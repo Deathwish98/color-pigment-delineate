@@ -10,7 +10,8 @@ const routes: Routes = [
   //     { path: 'start-free-trial', loadChildren: './pages/organisation/start-free-trial/start-free-trial.module#StartFreeTrialPageModule' }
   //   ]},
   { path: 'auth', loadChildren: './modules/auth/auth.module#AuthModule'},
-  { path: '', loadChildren: './modules/main-app/main-app.module#MainAppModule', canLoad: [AuthGuard]},
+  { path: '', loadChildren: './modules/main-app/main-app.module#MainAppModule', canLoad: [AuthGuard]}
+
 ];
 
 @NgModule({

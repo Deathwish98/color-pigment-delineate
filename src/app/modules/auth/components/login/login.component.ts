@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {LoginService} from '../../../../services/login.service';
 import {Subscription} from 'rxjs';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,8 @@ export class LoginComponent implements OnInit, OnDestroy {
     password: new FormControl(null, [Validators.required])
   });
 
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService,
+              private router: Router) { }
 
   ngOnInit() {
   }
@@ -36,6 +38,8 @@ export class LoginComponent implements OnInit, OnDestroy {
 
       this.loginSubscription = this.loginService.login(this.loginForm.value).subscribe((response) => {
         this.showloginSpinner = false;
+        this.loginService.setSession(response);
+        this.router.navigateByUrl('/videos');
         console.log(response);
       }, (err) => {
         this.showloginSpinner = false;
