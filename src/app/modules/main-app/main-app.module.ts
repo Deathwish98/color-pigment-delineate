@@ -15,6 +15,9 @@ import {CommonModule} from '@angular/common';
 import {HeaderComponent} from './components/header/header.component';
 import {FooterComponent} from './components/footer/footer.component';
 import { VideosComponent } from './components/videos/videos.component';
+import { FileUploaderComponent } from './components/file-uploader/file-uploader.component';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {AuthInterceptor} from '../../interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,8 @@ import { VideosComponent } from './components/videos/videos.component';
     DashboardComponent,
     HeaderComponent,
     FooterComponent,
-    VideosComponent
+    VideosComponent,
+    FileUploaderComponent
   ],
   imports: [
     MainAppRoutingModule,
@@ -36,6 +40,12 @@ import { VideosComponent } from './components/videos/videos.component';
     MatDividerModule,
     CommonModule,
     MatGridListModule
+  ],
+  entryComponents: [
+    FileUploaderComponent
+  ],
+  providers: [
+    // { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ]
 })
 export class MainAppModule { }

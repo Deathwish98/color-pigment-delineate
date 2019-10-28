@@ -36,7 +36,6 @@ const routes: Routes = [
   ],
   imports: [
     RouterModule.forChild(routes),
-    HttpClientModule,
     CommonModule,
     ReactiveFormsModule,
     MatFormFieldModule,

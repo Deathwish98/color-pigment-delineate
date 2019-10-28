@@ -20,4 +20,17 @@ export class SharedService {
   public currentRouteSubject = new Subject<string>();
   public currentRoute: string;
 
+  public static toFormData<T>( formValue: T ) {
+    console.log(formValue);
+    const formData = new FormData();
+
+    for ( const key of Object.keys(formValue) ) {
+      const value = formValue[key];
+      formData.append(key, value, value.name);
+    }
+
+    // new Response(formData).text().then(console.log);
+    return formData;
+  }
+
 }

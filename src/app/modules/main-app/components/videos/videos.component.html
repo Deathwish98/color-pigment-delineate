@@ -27,7 +27,11 @@
 
   <mat-grid-tile [colspan]="2" [rowspan]="1" class="btn-row">
     <button mat-raised-button color="primary">Play</button>
-    <button mat-raised-button class="play-btn">Upload</button>
+    <button mat-raised-button class="play-btn" (click)="createUploaderComponent()">Upload</button>
   </mat-grid-tile>
 
 </mat-grid-list>
+
+<template #fileUploaderContainer>
+</template>
+<!--<app-file-uploader [progress]="0"></app-file-uploader>-->
