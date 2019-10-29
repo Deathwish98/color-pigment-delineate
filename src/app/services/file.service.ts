@@ -17,4 +17,8 @@ export class FileService {
       observe: 'events'
     });
   }
+
+  getFilesList() {
+    return this.http.get<any>(`${environment.CPDSERVER}/api/videos/all`);
+  }
 }

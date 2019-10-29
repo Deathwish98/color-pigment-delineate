@@ -1,0 +1,21 @@
+h1[mat-dialog-title] {
+  text-align: center;
+}
+
+span {
+  margin: 16px;
+  img {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+mat-dialog-actions {
+  position: absolute;
+  bottom: 18%;
+  right: 15%
+}
+
+.boundary-selected {
+  border: 4px solid blue;
+}

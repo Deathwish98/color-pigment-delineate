@@ -20,13 +20,14 @@
         <a href="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" download>Download</a>
       </video>
     </div>
+    <!--<img alt="shit happens" src="http://localhost:3000/sample.jpg">-->
   </mat-grid-tile>
   <mat-grid-tile [colspan]="2" [rowspan]="2">
     <p class="description-text">This is where your videos and their respective settings are stored. You can choose a video from list of your videos.</p>
   </mat-grid-tile>
 
   <mat-grid-tile [colspan]="2" [rowspan]="1" class="btn-row">
-    <button mat-raised-button color="primary">Play</button>
+    <button mat-raised-button color="primary" (click)="getFilesList()">Play</button>
     <button mat-raised-button class="play-btn" (click)="createUploaderComponent()">Upload</button>
   </mat-grid-tile>
 

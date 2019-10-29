@@ -3,7 +3,7 @@ import {MainAppRoutingModule} from './main-app-routing.module';
 import {MainAppComponent} from './main-app.component';
 import {DashboardComponent} from './components/dashboard/dashboard.component';
 import {
-  MatButtonModule, MatDividerModule, MatGridListModule,
+  MatButtonModule, MatDialogModule, MatDividerModule, MatGridListModule,
   MatIconModule,
   MatInputModule,
   MatListModule,
@@ -18,6 +18,8 @@ import { VideosComponent } from './components/videos/videos.component';
 import { FileUploaderComponent } from './components/file-uploader/file-uploader.component';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {AuthInterceptor} from '../../interceptors/auth.interceptor';
+import { VideosListModalComponent } from './components/videos-list-modal/videos-list-modal.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import {AuthInterceptor} from '../../interceptors/auth.interceptor';
     HeaderComponent,
     FooterComponent,
     VideosComponent,
-    FileUploaderComponent
+    FileUploaderComponent,
+    VideosListModalComponent
   ],
   imports: [
     MainAppRoutingModule,
@@ -39,10 +42,13 @@ import {AuthInterceptor} from '../../interceptors/auth.interceptor';
     MatListModule,
     MatDividerModule,
     CommonModule,
-    MatGridListModule
+    MatGridListModule,
+    FormsModule,
+    MatDialogModule
   ],
   entryComponents: [
-    FileUploaderComponent
+    FileUploaderComponent,
+    VideosListModalComponent
   ],
   providers: [
     // { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

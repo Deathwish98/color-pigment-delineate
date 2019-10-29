@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Your Videos</h1>
+<div mat-dialog-content>
+  <span *ngFor="let image of data.videos">
+    <img  [ngClass]="{'boundary-selected' : image.selected}"
+          [src]="'http://localhost:3000/' + image.thumbnail_name"
+          alt="Video Thumbnail"
+          (click)="selectImage(image)">
+  </span>
+</div>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="playVideo()" cdkFocusInitial [disabled]="!selectedVideo">Play</button>
+</mat-dialog-actions>

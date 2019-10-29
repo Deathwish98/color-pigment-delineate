@@ -1,6 +1,9 @@
 import {Component, ComponentFactoryResolver, OnDestroy, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
 import * as Plyr from 'plyr';
 import {FileUploaderComponent} from '../file-uploader/file-uploader.component';
+import {FileService} from '../../../../services/file.service';
+import {MatDialog} from '@angular/material';
+import {VideosListModalComponent} from '../videos-list-modal/videos-list-modal.component';
 
 
 @Component({
@@ -14,6 +17,8 @@ export class VideosComponent implements OnInit, OnDestroy {
 
   fileUploaderSubscription;
   player;
+  animal: string;
+  name: string;
 
   tiles: any[] = [
     {text: 'One', cols: 2, rows: 1, color: 'lightblue'},
@@ -22,7 +27,9 @@ export class VideosComponent implements OnInit, OnDestroy {
   ];
 
   constructor(
-    private resolver: ComponentFactoryResolver
+    private resolver: ComponentFactoryResolver,
+    private fileService: FileService,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -54,6 +61,24 @@ export class VideosComponent implements OnInit, OnDestroy {
     if (this.fileUploaderSubscription) {
       this.fileUploaderSubscription.unsubscribe();
     }
+  }
+
+  getFilesList() {
+    this.fileService.getFilesList().subscribe((response) => {
+      console.log(response);
+      const dialogRef = this.dialog.open(VideosListModalComponent, {
+        width: '75%',
+        height: '75%',
+        data: {videos: response.videos}
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed', result);
+      });
+
+    }, (err) => {
+      console.log(err);
+    });
   }
 
 }
