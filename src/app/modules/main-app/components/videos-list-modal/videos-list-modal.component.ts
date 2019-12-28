@@ -23,7 +23,9 @@ export class VideosListModalComponent implements OnInit {
   selectImage(image) {
     this.data.videos.forEach((video) => {
       video.selected = video._id === image._id;
-      this.selectedVideo = video;
+      if (video.selected) {
+        this.selectedVideo = video;
+      }
     });
     console.log(this.data);
   }

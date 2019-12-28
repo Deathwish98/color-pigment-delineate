@@ -21,7 +21,6 @@ mat-grid-tile {
 }
 
 .btn-row {
-  margin-bottom: auto;
   margin-top: 0px;
   button {
     width: 13rem;
@@ -36,6 +35,19 @@ mat-grid-tile {
 
 .video-player {
   margin-top: 5rem !important;
+}
+
+mat-form-field {
+  float: right;
+  margin-bottom: 8px; // FOR CHROME FLICKER FIX
+}
+
+.modifiedVideoRequestButton {
+  float: right;
+  position: relative;
+  top: 10px;
+  margin-left: 32px;
+  margin-right: 16px;
 }
 
 //

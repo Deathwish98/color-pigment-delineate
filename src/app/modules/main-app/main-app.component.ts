@@ -1,5 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
 import {MatMenuTrigger} from '@angular/material';
+import {SharedService} from '../../services/shared.service';
 
 @Component({
   selector: 'app-main-app',
@@ -7,6 +8,11 @@ import {MatMenuTrigger} from '@angular/material';
   styleUrls: ['./main-app.component.scss']
 })
 export class MainAppComponent {
+
+
+  constructor(private sharedService: SharedService) {
+  }
+
   title = 'color-pigment-delineate';
 
   sideNavItems = [
@@ -22,5 +28,9 @@ export class MainAppComponent {
       additional_icon: 'add_circle'
     }
   ];
+
+  triggerUploadFileAction() {
+    this.sharedService.uploadFileActionSubject$.next();
+  }
 
 }

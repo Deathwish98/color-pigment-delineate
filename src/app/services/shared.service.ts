@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Router} from '@angular/router';
+import {NavigationEnd, Router} from '@angular/router';
 import {Subject} from 'rxjs';
 
 @Injectable({
@@ -9,16 +9,20 @@ export class SharedService {
 
   constructor( private router: Router) {
     router.events.subscribe((val) => {
-      console.log(val);
+      if (val instanceof NavigationEnd) {
+        console.log(val);
+        this.currentRouteSubject$.next(val.urlAfterRedirects);
+      }
     });
 
-    this.currentRouteSubject.subscribe((route) => {
+    this.currentRouteSubject$.subscribe((route) => {
       this.currentRoute = route;
     });
   }
 
-  public currentRouteSubject = new Subject<string>();
+  public currentRouteSubject$ = new Subject<string>();
   public currentRoute: string;
+  public uploadFileActionSubject$ = new Subject<any>();
 
   public static toFormData<T>( formValue: T ) {
     console.log(formValue);

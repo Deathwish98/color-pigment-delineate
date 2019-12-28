@@ -6,7 +6,7 @@
 <!---->
         <mat-icon matListIcon>{{item.icon}}</mat-icon>
         <a matLine><h3 matLine> {{item.label}} </h3></a>
-        <button mat-icon-button mat-button *ngIf="item && item.additional_icon" >
+        <button mat-icon-button mat-button *ngIf="item && item.additional_icon" (click)="triggerUploadFileAction()">
           <mat-icon matListIcon class="additonal_sidenav_list_icon">{{item.additional_icon}}</mat-icon>
         </button>
 
